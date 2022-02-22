@@ -1,0 +1,37 @@
+:root {
+  /* COLORS */
+  --white: #ffffff;
+  --lighter-gray: #eeeeee;
+  --light-gray: #aaaaaa;
+  --gray: #787878;
+  --dark-gray: #666666;
+  --darker-gray: #4d4d4d;
+  --darkest-gray: #1a1a1a;
+  --black: #000000;
+
+  --blue:#3e78e8;
+  --red: #C91E2C;
+  --green: #3db818;
+
+  --primary: var(--darkest-gray);
+  --secondary: var(--lighter-gray);
+  --error: var(--red);
+  --success: var(--green);
+  --link: var(--blue);
+
+  /* FONT SIZES */
+  --font-size-very-small: .85rem;
+  --font-size-small: .9rem;
+  --font-size-normal: 1rem;
+  --font-size-big: 1.2rem;
+  --font-size-bigger: 1.5rem;
+  --font-size-huge: 2.4rem;
+  --font-size-biggest: 3.2rem;
+
+  /* DIMENSIONS */
+  --input-height: 2.2rem;
+  --button-padding: .6rem 1.2rem;
+  --header-height: 7rem;
+  --view-padding: 2rem;
+  --section-margin: 1rem;
+}

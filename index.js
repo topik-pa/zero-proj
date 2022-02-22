@@ -5,6 +5,8 @@ const port = process.env.PORT || 3000
 app.set('views', './views')
 app.set('view engine', 'pug')
 
+app.use('/public', express.static(__dirname + '/public'))
+app.use('/components', express.static(__dirname + '/components'))
 app.use('/scripts', express.static(__dirname + '/scripts'))
 app.use('/styles', express.static(__dirname + '/styles'))
 

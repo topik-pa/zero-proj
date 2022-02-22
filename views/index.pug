@@ -2,8 +2,9 @@ doctype html
 html
   head
     title Documento - #{title}
+    link(rel="shortcut icon", href="/public/favicon.ico", type="image/x-icon")
     link(rel="stylesheet", type="text/css", href="/styles/style.css")
   body
-    include includes/header.pug
-    include includes/footer.pug
-    script(src='/scripts/script.js')
+    include ../components/header/header.pug
+    include ../components/footer/footer.pug
+    script(src='/scripts/script.js', type='module')

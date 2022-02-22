@@ -1,0 +1,37 @@
+- 
+  let socials = [
+    {
+      name: 'Facebook',
+      url: '#',
+      icon: 'icon-facebook'
+    },
+    {
+      name: 'Telegram',
+      url: '#',
+      icon: 'icon-telegram'
+    },
+    {
+      name: 'Twitter',
+      url: '#',
+      icon: 'icon-twitter'
+    },
+    {
+      name: 'LinkedIn',
+      url: '#',
+      icon: 'icon-linkedin2'
+    },
+    {
+      name: 'Pinterest',
+      url: '#',
+      icon: 'icon-pinterest'
+    },
+    {
+      name: 'Mail',
+      url: '#',
+      icon: 'icon-mail2'
+    }
+  ]
+section(id="socials")
+  each social in socials
+    a(href=social.url, title=social.name)
+      i(class=social.icon)
