@@ -1,11 +1,10 @@
-header {
-  background-color: var(--darker-gray);
+header section {
+  padding: 5px var(--view-padding);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px var(--view-padding);
 }
 
-header form {
-  display: flex;
+header section:nth-child(1) {
+  background-color: var(--darker-gray);
 }

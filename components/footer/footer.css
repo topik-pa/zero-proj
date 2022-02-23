@@ -3,5 +3,9 @@ footer {
   display: flex;
   justify-content: center;
   color: var(--secondary);
-  padding: 0.2rem 0;
+  padding: var(--x-small-space) 0;
+}
+
+footer a {
+  font-weight: 500;
 }

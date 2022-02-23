@@ -1,0 +1,21 @@
+- 
+  let pages = [
+    {
+      name: 'Home',
+      url: '/'
+    },
+    {
+      name: 'Privacy',
+      url: '/privacy'
+    },
+    {
+      name: 'Contatti',
+      url: '/contatti'
+    }
+  ]
+nav(id="main-menu")
+  each page in pages
+      a(href=page.url, title=page.name) #{page.name}
+
+
+  

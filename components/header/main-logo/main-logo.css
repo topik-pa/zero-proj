@@ -1,0 +1,5 @@
+#main-logo {
+  font-size: var(--font-size-huge);
+  font-weight: 500;
+  padding: var(--small-space) 0;
+}

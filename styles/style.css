@@ -3,7 +3,11 @@
 @import "./variables.css";
 @import "./global.css";
 @import "./icons.css";
+@import "./montserrat.css";
 
 @import "/components/header/header.css";
+@import "/components/header/main-logo/main-logo.css";
+@import "/components/header/main-menu/main-menu.css";
+@import "/components/header/paypal-donate-btn/paypal-donate-btn.css";
 @import "/components/header/social-icons/social-icons.css";
 @import "/components/footer/footer.css";

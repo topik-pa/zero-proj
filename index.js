@@ -11,7 +11,13 @@ app.use('/scripts', express.static(__dirname + '/scripts'))
 app.use('/styles', express.static(__dirname + '/styles'))
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Marco' })
+  res.render('index', { title: 'Home' })
+})
+app.get('/privacy', (req, res) => {
+  res.render('privacy', { title: 'Privacy' })
+})
+app.get('/contatti', (req, res) => {
+  res.render('contatti', { title: 'Contatti' })
 })
 
 app.listen(port, () => {
