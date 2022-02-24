@@ -12,10 +12,14 @@
       name: 'Contatti',
       url: '/contatti'
     }
-  ]
+  ] 
+i(class="icon-menu") 
 nav(id="main-menu")
-  each page in pages
-      a(href=page.url, title=page.name) #{page.name}
+  ul
+    each page in pages
+      li
+        a(href=page.url, title=page.name) #{page.name.toUpperCase()}
+
 
 
   

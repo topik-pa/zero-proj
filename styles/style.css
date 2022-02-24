@@ -1,6 +1,6 @@
 
-@import "./reset.min.css";
 @import "./variables.css";
+@import "./reset.min.css";
 @import "./global.css";
 @import "./icons.css";
 @import "./montserrat.css";
@@ -11,3 +11,5 @@
 @import "/components/header/paypal-donate-btn/paypal-donate-btn.css";
 @import "/components/header/social-icons/social-icons.css";
 @import "/components/footer/footer.css";
+
+@import "./responsive.css";

@@ -33,9 +33,9 @@
   --x-small-space: .5rem;
   --small-space: .7rem;
   --normal-space: 1rem;
-  --large-space: 2rem;
-  --x-large-space: 3rem;
-  --xx-large-space: 4rem;
+  --large-space: 1.5rem;
+  --x-large-space: 2rem;
+  --xx-large-space: 3rem;
 
   --view-padding: var(--large-space);
   --section-margin: var(--xx-large-space);
