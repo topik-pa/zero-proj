@@ -1,3 +1,3 @@
-import main_menu from '/components/header/main-menu/main-menu.js'
+import mainMenu from '../components/header/main-menu/main-menu.js'
 
-main_menu.toggleMobileMenu()
+mainMenu.toggleMobileMenu()

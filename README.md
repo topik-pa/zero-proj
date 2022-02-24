@@ -16,3 +16,6 @@ git push -u origin main
 git remote add origin https://github.com/topik-pa/zero-proj.git
 git branch -M main
 git push -u origin main
+
+
+https://eslint.org/docs/user-guide/getting-started

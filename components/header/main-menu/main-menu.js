@@ -1,12 +1,12 @@
-let main_menu = {
+const mainMenu = {
   toggleMobileMenu: () => {
-    let header = document.querySelector('header')
-    let menu_icon = header.querySelector('.icon-menu')
-    let menu = header.querySelector('nav')
-    menu_icon.addEventListener('click', () => {
+    const header = document.querySelector('header')
+    const menuIcon = header.querySelector('.icon-menu')
+    const menu = header.querySelector('nav')
+    menuIcon.addEventListener('click', () => {
       menu.classList.toggle('show')
     })
   }
 }
 
-export default main_menu
+export default mainMenu
