@@ -19,7 +19,8 @@ html
     link(rel="stylesheet", type="text/css", href="/styles/style.css")
   body
     block body
-      include ../components/header/header.pug
+      include ../components/shared/header/header.pug
       main
-      include ../components/footer/footer.pug
+      include ../components/shared/footer/footer.pug
+      include ../components/shared/cookie_layer/cookie_layer.pug
       script(src='/scripts/script.js', type='module')

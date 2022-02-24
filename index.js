@@ -1,3 +1,4 @@
+/* eslint-disable node/no-path-concat */
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
@@ -20,10 +21,11 @@ app.get('/privacy', (req, res) => {
 app.get('/contatti', (req, res) => {
   res.render('contatti', { title: 'Contatti' })
 })
-app.get('*', function(req, res){
+app.get('*', function (req, res) {
   res.render('404', { title: 'Error 404' })
-});
+})
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`App listening on port ${port}`)
 })
