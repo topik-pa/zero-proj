@@ -3,3 +3,13 @@
   font-weight: 500;
   padding: var(--small-space) 0;
 }
+
+#main-logo img {
+  height: var(--large-space);
+  margin-right: var(--xx-small-space);
+}
+
+#main-logo a {
+  display: flex;
+  align-items: center;
+}

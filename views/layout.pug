@@ -3,15 +3,23 @@
   let proj_url = 'https://www.zero-project.net'
   let copy = 2022
   let owner = 'Marco Pavan'
+  let fbAppId = '#'
+  let googleSiteVerification = '#'
 
 doctype html
 html
   head
     block meta 
-      title #{proj_name}
+      meta(charset="utf-8")
+      meta(name="google-site-verification" content=googleSiteVerification)
+      meta(property="fb:app_id" content=fbAppId)
+      meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+      meta(name="author" content=owner)
     link(rel="shortcut icon", href="/public/favicon.ico", type="image/x-icon")
     link(rel="stylesheet", type="text/css", href="/styles/style.css")
   body
-    include ../components/header/header.pug
-    include ../components/footer/footer.pug
-    script(src='/scripts/script.js', type='module')
+    block body
+      include ../components/header/header.pug
+      main
+      include ../components/footer/footer.pug
+      script(src='/scripts/script.js', type='module')
