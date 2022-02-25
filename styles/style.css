@@ -17,4 +17,6 @@
 @import "/components/shared/cookie_layer/cookie_layer.css";
 @import "/components/shared/goto_top/goto_top.css";
 
+@import "/views/404/404.css";
+
 @import "./responsive.css";

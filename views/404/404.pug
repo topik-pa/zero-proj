@@ -1,0 +1,7 @@
+extends ../layout.pug
+
+block append meta
+  title #{title} | #{proj_name}
+block body
+  div 404
+  a(href=proj_url, title="Home page") #{proj_name}
