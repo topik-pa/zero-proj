@@ -10,16 +10,16 @@
   content: '';
   position: absolute;
   cursor: wait;
-  border: .8rem solid var(--white);
-  border-top: .8rem solid var(--blue);
+  border: var(--small-space) solid var(--white);
+  border-top: var(--small-space) solid var(--blue);
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: var(--x-large-space);
+  height: var(--x-large-space);
   animation: spin .5s linear infinite;
   top: 50%;
   right: 50%;
-  margin-top: -2rem;
-  margin-right: -2rem;
+  margin-top: calc(-1 * var(--x-large-space));
+  margin-right: calc(-1 * var(--x-large-space));
 }
 .loading * {
   pointer-events: none;

@@ -4,6 +4,7 @@
 @import "./global.css";
 @import "./icons.css";
 @import "./montserrat.css";
+@import "./headings.css";
 @import "./buttons.css";
 @import "./loading.css";
 
@@ -14,5 +15,6 @@
 @import "/components/shared/header/social-icons/social-icons.css";
 @import "/components/shared/footer/footer.css";
 @import "/components/shared/cookie_layer/cookie_layer.css";
+@import "/components/shared/goto_top/goto_top.css";
 
 @import "./responsive.css";

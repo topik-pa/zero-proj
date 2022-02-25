@@ -15,6 +15,7 @@
 
   --primary: var(--darkest-gray);
   --secondary: var(--lighter-gray);
+  --tertiary: var(--blue);
   --error: var(--red);
   --success: var(--green);
   --link: var(--blue);
@@ -39,4 +40,9 @@
 
   --view-padding: var(--large-space);
   --section-margin: var(--xx-large-space);
+
+  /* BORDER RADIUS */
+  --border-radius-small: .3rem;
+  --border-radius-big: .6rem;
+  --border-radius-round: 50%;
 }

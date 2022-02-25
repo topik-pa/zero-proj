@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-cheveron-up:before {
+  content: "\e900";
+}
 .icon-menu:before {
   content: "\e9bd";
 }
