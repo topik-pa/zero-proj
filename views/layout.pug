@@ -1,4 +1,5 @@
 -
+  let prod = NODE_ENV === 'production'
   let proj_name = 'zero-project.net'
   let proj_url = 'https://www.zero-project.net'
   let copy = 2022
@@ -16,7 +17,10 @@ html
       meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
       meta(name="author" content=owner)
     link(rel="shortcut icon", href="/public/favicon.ico", type="image/x-icon")
-    link(rel="stylesheet", type="text/css", href="/styles/style.css")
+    if prod
+        link(rel="stylesheet", type="text/css", href="/dist/main.css")
+    else
+        link(rel="stylesheet", type="text/css", href="/styles/style.css")
   body(id=id)
     block body
       include ../components/shared/header/header.pug
@@ -24,4 +28,7 @@ html
       include ../components/shared/footer/footer.pug
       include ../components/shared/cookie_layer/cookie_layer.pug
       include ../components/shared/goto_top/goto_top.pug
-      script(src='/scripts/script.js', type='module')
+      if prod
+        script(src='/dist/main.js')
+      else
+        script(src='/scripts/index.js', type='module')

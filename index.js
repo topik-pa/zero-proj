@@ -12,18 +12,19 @@ app.use('/scripts', express.static(__dirname + '/scripts'))
 app.use('/styles', express.static(__dirname + '/styles'))
 app.use('/assets', express.static(__dirname + '/assets'))
 app.use('/views', express.static(__dirname + '/views'))
+app.use('/dist', express.static(__dirname + '/dist'))
 
 app.get('/', (req, res) => {
-  res.render('index', { id: 'home', title: 'Home' })
+  res.render('index', { NODE_ENV: process.env.NODE_ENV, id: 'home', title: 'Home' })
 })
 app.get('/privacy', (req, res) => {
-  res.render('privacy/privacy', { id: 'privacy', title: 'Privacy' })
+  res.render('privacy/privacy', { NODE_ENV: process.env.NODE_ENV, id: 'privacy', title: 'Privacy' })
 })
 app.get('/contatti', (req, res) => {
-  res.render('contatti/contatti', { id: 'contacts', title: 'Contatti' })
+  res.render('contatti/contatti', { NODE_ENV: process.env.NODE_ENV, id: 'contacts', title: 'Contatti' })
 })
 app.get('*', function (req, res) {
-  res.render('404/404', { id: 'err404', title: 'Error 404' })
+  res.render('404/404', { NODE_ENV: process.env.NODE_ENV, id: 'err404', title: 'Error 404' })
 })
 
 app.listen(port, () => {

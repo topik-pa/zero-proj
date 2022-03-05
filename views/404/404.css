@@ -3,6 +3,6 @@
 }
 
 #err404 div {
-  font-size: xxx-large;
+  font-size: var(--font-size-biggest);
   margin: 3rem;
 }
