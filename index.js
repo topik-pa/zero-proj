@@ -2,6 +2,8 @@
 const express = require('express')
 const https = require('https')
 const fs = require('fs')
+const { I18n } = require('i18n')
+const path = require('path')
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -18,6 +20,16 @@ app.use('/public', express.static(__dirname + '/public'))
 app.use('/assets', express.static(__dirname + '/assets'))
 app.use('/dist', express.static(__dirname + '/dist'))
 
+const i18n = new I18n({
+  locales: ['en', 'de'],
+  defaultLocale: 'en',
+  directory: path.join(__dirname, 'locales')
+})
+app.use((req, res, next) => {
+  i18n.init(req, res)
+  next()
+})
+
 app.locals.NODE_ENV = process.env.NODE_ENV
 
 app.get('/', (req, res) => {
@@ -33,10 +45,12 @@ app.get('*', function (req, res) {
   res.render('404/404', { id: 'err404', title: 'Error 404' })
 })
 
-https.createServer({
+const options = {
   key: fs.readFileSync('./cert/server.key'),
   cert: fs.readFileSync('./cert/server.cert')
-}, app).listen(PORT, () => {
+}
+
+https.createServer(options, app).listen(PORT, () => {
   console.log(`App is running on port ${PORT} over HTTPS.`)
 })
 
