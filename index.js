@@ -1,7 +1,7 @@
 /* eslint-disable node/no-path-concat */
 const express = require('express')
-const https = require('https')
-const fs = require('fs')
+// const https = require('https')
+// const fs = require('fs')
 const { I18n } = require('i18n')
 const path = require('path')
 const app = express()
@@ -45,16 +45,16 @@ app.get('*', function (req, res) {
   res.render('404/404', { id: 'err404', title: 'Error 404' })
 })
 
-const options = {
+/* const options = {
   key: fs.readFileSync('./cert/server.key'),
   cert: fs.readFileSync('./cert/server.cert')
-}
+} */
 
-https.createServer(options, app).listen(PORT, () => {
+/* https.createServer(options, app).listen(PORT, () => {
   console.log(`App is running on port ${PORT} over HTTPS.`)
-})
-
-/* app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(`App listening on port ${port}`)
 }) */
+
+app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
+  console.log(`App listening on port ${PORT}`)
+})
