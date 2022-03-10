@@ -11,7 +11,7 @@ const options = {
 }
 
 // GET
-exports.get = async (req, res) => {
+exports.test = async (req, res) => {
   options.method = 'GET'
 
   const request = http.request(options, function (response) {

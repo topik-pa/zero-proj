@@ -1,7 +1,7 @@
 const endpoint = '/api/'
 
 const api = {
-  get: async (path = endpoint) => {
+  get: async (path) => {
     const formattedResp = {}
     const params = {
       method: 'GET',
@@ -18,7 +18,7 @@ const api = {
       .catch((err) => { console.error(err) })
     return formattedResp
   },
-  post: async (data = {}, path = endpoint) => {
+  post: async (data = {}, path) => {
     const formattedResp = {}
     const params = {
       method: 'POST',
