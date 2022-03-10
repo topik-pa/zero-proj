@@ -1,5 +1,5 @@
 -
-  let prod = NODE_ENV === 'production'
+  let prod = process.env.NODE_ENV === 'production'
   let proj_name = 'zero-project.net'
   let proj_url = 'https://www.zero-project.net'
   let copy = 2022
@@ -24,7 +24,7 @@ html
   body(id=id)
     block body
       include ../components/shared/header/header.pug
-      main #{__('Hello')}
+      block main
       include ../components/shared/footer/footer.pug
       include ../components/shared/cookie_layer/cookie_layer.pug
       include ../components/shared/goto_top/goto_top.pug

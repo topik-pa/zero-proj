@@ -1,4 +1,4 @@
-const endpoint = 'https://www.zeroprojapi.net'
+const endpoint = '/api/'
 
 const api = {
   get: async (path = endpoint) => {
