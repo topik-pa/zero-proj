@@ -1,6 +1,9 @@
 {
   "Empty": "",
   "Hello": "Hello",
+  "disclaimer": "{{{attention}}}: operare in Borsa e fare trading costituiscono {{{risk}}}. Le informazioni qui presentate non costituiscono una sollecitazione di acquisto o vendita di titoli azionari e si intendono per puro uso informativo. Il proprietario del presente sito non si dichiara responsabile di un utilizzo improprio delle informazioni qui ottenute.",
+  "contacts": "Contacts",
+	"analysis": "analysis",
   "Hello %s, how are you today?": "Hello %s, how are you today?",
   "weekend": "weekend",
   "Hello %s, how are you today? How was your %s.": "Hello %s, how are you today? How was your %s.",

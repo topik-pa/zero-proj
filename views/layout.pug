@@ -22,13 +22,13 @@ html
     else
         link(rel="stylesheet", type="text/css", href="/styles/style.css")
   body(id=id)
-    block body
-      include ../components/shared/header/header.pug
-      block main
+    include ../components/shared/header/header.pug
+    block main
+    block footer
       include ../components/shared/footer/footer.pug
       include ../components/shared/cookie_layer/cookie_layer.pug
       include ../components/shared/goto_top/goto_top.pug
-      if prod
-        script(src='/dist/main.js')
-      else
-        script(src='/scripts/index.js', type='module')
+    if prod
+      script(src='/dist/main.js')
+    else
+      script(src='/scripts/index.js', type='module')

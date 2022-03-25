@@ -11,6 +11,11 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.(png|jpg)$/,
+        type: 'asset',
+        parser: { dataUrlCondition: { maxSize: 20000 } }
       }
     ]
   },

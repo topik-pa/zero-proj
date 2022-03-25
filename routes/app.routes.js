@@ -3,9 +3,19 @@ module.exports = app => {
     res.render('index', { id: 'home', title: 'Home' })
   })
   app.get('/privacy', (req, res) => {
-    res.render('privacy/privacy', { id: 'privacy', title: 'Privacy' })
+    const breadcrumbs = [
+      {
+        name: 'privacy'
+      }
+    ]
+    res.render('privacy/privacy', { id: 'privacy', title: 'Privacy', breadcrumbs })
   })
   app.get('/contatti', (req, res) => {
-    res.render('contatti/contatti', { id: 'contacts', title: 'Contatti' })
+    const breadcrumbs = [
+      {
+        name: 'contacts'
+      }
+    ]
+    res.render('contatti/contatti', { id: 'contacts', title: 'Contacts', breadcrumbs })
   })
 }
