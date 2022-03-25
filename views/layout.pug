@@ -4,8 +4,10 @@
   let proj_url = 'https://www.zero-project.net'
   let copy = 2022
   let owner = 'Marco Pavan'
-  let fbAppId = '#'
+  let fbAppId = 238576103449837
   let googleSiteVerification = '#'
+  let sc_project = 12345
+  let sc_security = 'xxxxx'  
 
 doctype html
 html
@@ -29,6 +31,13 @@ html
       include ../components/shared/cookie_layer/cookie_layer.pug
       include ../components/shared/goto_top/goto_top.pug
     if prod
+      div(id="fb-root")
       script(src='/dist/main.js')
+      script(async defer crossorigin="anonymous" src=("https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v13.0&appId=" + fbAppId + "&autoLogAppEvents=1") nonce="MWhn9uhC")
+      script.
+        var sc_project = #{sc_project};
+        var sc_invisible = 1;
+        var sc_security = "#{sc_security}";
+      script(src='https://www.statcounter.com/counter/counter.js', async)
     else
       script(src='/scripts/index.js', type='module')

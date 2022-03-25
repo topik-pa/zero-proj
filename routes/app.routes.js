@@ -1,6 +1,6 @@
 module.exports = app => {
   app.get('/', (req, res) => {
-    res.render('index', { id: 'home', title: 'Home' })
+    res.render('index', { id: 'home', title: 'Home', url: req.url })
   })
   app.get('/privacy', (req, res) => {
     const breadcrumbs = [
@@ -8,7 +8,7 @@ module.exports = app => {
         name: 'privacy'
       }
     ]
-    res.render('privacy/privacy', { id: 'privacy', title: 'Privacy', breadcrumbs })
+    res.render('privacy/privacy', { id: 'privacy', title: 'Privacy', url: req.url, breadcrumbs })
   })
   app.get('/contatti', (req, res) => {
     const breadcrumbs = [
@@ -16,6 +16,6 @@ module.exports = app => {
         name: 'contacts'
       }
     ]
-    res.render('contatti/contatti', { id: 'contacts', title: 'Contacts', breadcrumbs })
+    res.render('contatti/contatti', { id: 'contacts', title: 'Contacts', url: req.url, breadcrumbs })
   })
 }
