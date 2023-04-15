@@ -2,7 +2,7 @@ __previewjs__/
 node_modules/
 tests/e2e/cypress/screenshots
 tests/e2e/cypress/videos
-dist/
+# dist/
 dist-ssr
 *.local
 # Logs
