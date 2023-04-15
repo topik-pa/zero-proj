@@ -1,17 +1,17 @@
 :root {
   /* COLORS */
-  --white: #ffffff;
+  --white:        #ffffff;
   --lighter-gray: #eeeeee;
-  --light-gray: #aaaaaa;
-  --gray: #787878;
-  --dark-gray: #666666;
-  --darker-gray: #4d4d4d;
+  --light-gray:   #aaaaaa;
+  --gray:         #787878;
+  --dark-gray:    #666666;
+  --darker-gray:  #4d4d4d;
   --darkest-gray: #1a1a1a;
-  --black: #000000;
+  --black:        #000000;
 
-  --blue:#3e78e8;
-  --red: #C91E2C;
-  --green: #3db818;
+  --blue: #3e78e8;
+  --red:  #C91E2C;
+  --green:#3db818;
 
   --primary: var(--darkest-gray);
   --secondary: var(--lighter-gray);
