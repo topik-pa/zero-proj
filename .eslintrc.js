@@ -13,7 +13,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'no-console': 'warn',
+    /* 'no-console': 'warn', */
     'no-debugger': 'warn',
     indent: [
       'error',
@@ -36,4 +36,4 @@ module.exports = {
     eqeqeq: ['error', 'always'],
     'comma-dangle': ['error', 'never']
   }
-};
+}
