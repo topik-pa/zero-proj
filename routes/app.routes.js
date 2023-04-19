@@ -1,6 +1,6 @@
 module.exports = app => {
   app.get('/', (req, res) => {
-    res.render('index', { id: 'home', title: 'Home', url: req.url })
+    res.render('home', { id: 'home', title: 'Home', url: req.url })
   })
   app.get('/privacy', (req, res) => {
     const breadcrumbs = [
