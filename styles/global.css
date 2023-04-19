@@ -9,6 +9,13 @@ body {
   background-color: var(--secondary);
 }
 
+main {
+  padding: 0 var(--view-padding);
+}
+main section {
+  margin: var(--section-margin) 0;
+}
+
 a {
   color: var(--blue);
   text-decoration: none;
