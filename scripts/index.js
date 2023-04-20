@@ -4,11 +4,9 @@ import mainMenu from '../components/shared/header/main-menu/main-menu.js'
 import cookieLayer from '../components/shared/cookie_layer/cookie_layer.js'
 import gotoTop from '../components/shared/goto_top/goto_top.js'
 
-import home from '../views/home.js'
-import users from '../views/users/users.js'
-import privacy from '../views/privacy/privacy.js'
-import contatti from '../views/contatti/contatti.js'
-import err404 from '../views/404/404.js'
+mainMenu.toggleMobileMenu()
+cookieLayer.init()
+gotoTop.init()
 
 // Go to the hash element if present
 function goToHash () {
@@ -21,26 +19,31 @@ function goToHash () {
     }
   }
 }
-
-mainMenu.toggleMobileMenu()
-cookieLayer.init()
-gotoTop.init()
-
 goToHash()
 
 if (document.querySelector('body#home')) {
-  home.init()
+  import('../views/home.js').then((module) => {
+    module.home.init()
+  })
 }
 if (document.querySelector('body#users')) {
-  users.init()
+  import('../views/users/users.js').then((module) => {
+    module.users.init()
+  })
 }
 if (document.querySelector('body#privacy')) {
-  privacy.init()
+  import('../views/privacy/privacy.js').then((module) => {
+    module.privacy.init()
+  })
 }
 if (document.querySelector('body#contacts')) {
-  contatti.init()
+  import('../views/contacts/contacts.js').then((module) => {
+    module.contacts.init()
+  })
 }
 if (document.querySelector('body#err404')) {
-  err404.init()
+  import('../views/err404/err404.js').then((module) => {
+    module.err404.init()
+  })
 }
 

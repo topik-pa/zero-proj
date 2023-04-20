@@ -1,7 +1,5 @@
-const users = {
+export const users = {
   init: async () => {
     console.log('Users')
   }
 }
-
-export default users

@@ -208,7 +208,7 @@ const jsArray = () => {
   console.log(arr.includes(4))
 }
 
-const home = {
+export const home = {
   init: async () => {
     console.log('Home page')
 
@@ -226,5 +226,3 @@ const home = {
     jsArray()
   }
 }
-
-export default home
