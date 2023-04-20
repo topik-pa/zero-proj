@@ -28,7 +28,8 @@ app.use((req, res, next) => {
   next()
 })
 
-// app.locals.NODE_ENV = process.env.NODE_ENV
+// Use absolute path in pug imports
+app.locals.basedir = path.join(__dirname, '/')
 
 // ROUTES
 require('./routes/api.routes')(app)
