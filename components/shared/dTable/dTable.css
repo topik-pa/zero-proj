@@ -1,0 +1,36 @@
+#dtable {
+  width: 100%;
+}
+
+#dtable caption {
+  margin: 1rem 0;
+  text-align: left;
+}
+
+#dtable th, #dtable td {
+  padding: 1rem 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#dtable td {
+  padding: .2rem;
+  max-width: 12rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#dtable tbody tr:hover {
+  background-color: var(--darker-gray);
+  color: var(--white);
+}
+
+#dtable thead {
+  border-bottom: 1px solid var(--darker-gray);
+  font-weight: 500;
+}
+
+#dtable tr img {
+  width: 2rem;
+}
