@@ -42,7 +42,7 @@ if (document.querySelector('body#contacts')) {
   })
 }
 if (document.querySelector('body#err404')) {
-  import('../views/err404/err404.js').then((module) => {
+  import('../views/404/404.js').then((module) => {
     module.err404.init()
   })
 }
