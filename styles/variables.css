@@ -39,7 +39,7 @@
   --xx-large-space: 3rem;
 
   --view-padding: var(--large-space);
-  --section-margin: var(--xx-large-space);
+  --section-margin: var(--x-large-space);
 
   /* BORDER RADIUS */
   --border-radius-small: .3rem;
