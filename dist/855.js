@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzero=self.webpackChunkzero||[]).push([[855],{855:(e,t,n)=>{n.r(t),n.d(t,{err404:()=>s});const s={init:async()=>{console.log("404");const e=await n.e(915).then(n.bind(n,915));document.adoptedStyleSheets=[e.default]}}}}]);
