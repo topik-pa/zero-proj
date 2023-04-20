@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  padding: 0 var(--view-padding);
+  padding: var(--view-padding);
 }
 main section {
   margin: var(--section-margin) 0;
