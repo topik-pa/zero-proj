@@ -18,10 +18,4 @@
 @import "/components/shared/goto_top/goto_top.css";
 @import "/components/shared/header/breadcrumbs/breadcrumbs.css";
 
-@import "/views/home.css";
-@import "/views/users/users.css";
-@import "/views/contatti/contatti.css";
-@import "/views/privacy/privacy.css";
-@import "/views/404/404.css";
-
 @import "./responsive.css";
