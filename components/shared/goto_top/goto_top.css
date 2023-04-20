@@ -10,6 +10,7 @@
   margin: var(--small-space);
   cursor: pointer;
   font-size: var(--font-size-big);
+  z-index: var(--gototop);
 }
 #goto_top:hover {
   filter: brightness(90%);

@@ -45,4 +45,10 @@
   --border-radius-small: .3rem;
   --border-radius-big: .6rem;
   --border-radius-round: 50%;
+
+  /* Z-INDEXES */
+  --loading: 9;
+  --modal: 99;
+  --privacy: 999;
+  --gototop: 9999;
 }

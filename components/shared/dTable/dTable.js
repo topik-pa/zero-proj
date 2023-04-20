@@ -24,6 +24,7 @@ const buildTable = (rows) => {
 
 const dTable = {
   init: async () => {
+    $table.classList.toggle('loading')
     await fetch(url)
       .then(response => response.json())
       .then((json) => {
@@ -33,7 +34,7 @@ const dTable = {
         console.error(error)
       })
       .finally(() => {
-        console.log('getRemoteData... done')
+        $table.classList.toggle('loading')
       })
   }
 }
