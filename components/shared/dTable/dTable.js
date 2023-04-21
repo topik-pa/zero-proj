@@ -3,10 +3,19 @@ const $table = document.getElementById('dtable')
 const $pagination = $table.querySelector('#pagination')
 const $navigation = $table.querySelector('ul')
 const $tHeader = $table.querySelector('thead')
+const $filter = $table.querySelector('#filter input')
+let filterTimer
+const startFilterRequestTimer = () => {
+  // Add a little pause before call the remote server (only on filters)
+  filterTimer = setTimeout(async () => {
+    await loadRowsData()
+  }, initConf.filterReqDelay)
+}
 
 const initConf = {
   limit: 10,
-  page: 1
+  page: 1,
+  filterReqDelay: 800
 }
 
 const queryString = {
@@ -32,6 +41,10 @@ const queryString = {
       const like = f.filter.charAt(f.filter.length - 1) === ']' ? '' : '%' // TODO: not proud...
       qs += `&${encodeURIComponent(f.col)}=${encodeURIComponent(f.filter)}${like}`
     }) */
+    const lastTypedFilter = this.filters[this.filters.length - 1]
+    if (lastTypedFilter) {
+      qs += `&filter=${encodeURIComponent(lastTypedFilter)}`
+    }
     return qs
   }
 }
@@ -66,6 +79,16 @@ $tHeader.addEventListener('click', async (e) => {
   dataset.order = order === 'asc' ? 'desc' : order === 'desc' ? 'asc' : 'asc'
   queryString.sorts.push({ sortBy, order: dataset.order })
   await loadRowsData()
+})
+
+$filter.addEventListener('input', async (e) => {
+  queryString.filters.push(e.target.value)
+  if (!filterTimer) {
+    startFilterRequestTimer()
+  } else {
+    clearTimeout(filterTimer)
+    startFilterRequestTimer()
+  }
 })
 
 const buildRows = (rows) => {

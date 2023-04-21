@@ -66,6 +66,9 @@
   color: var(--white);
 }
 
+#dtable th {
+  cursor: pointer;
+}
 #dtable th::before {
   content: '\26DB';
   transform: rotate(-90deg);
@@ -79,4 +82,8 @@
 #dtable th[data-order=asc]::before {
   transform: rotate(-180deg);
   color: var(--black)
+}
+
+#filter {
+  margin: var(--small-space) 0;
 }
