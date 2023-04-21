@@ -66,11 +66,17 @@
   color: var(--white);
 }
 
-#dtable th[data-order=desc]::before {
+#dtable th::before {
   content: '\26DB';
+  transform: rotate(-90deg);
+  display: inline-block;
+  color: var(--light-gray)
+}
+#dtable th[data-order=desc]::before {
+  transform: rotate(0deg);
+  color: var(--black)
 }
 #dtable th[data-order=asc]::before {
-  content: '\26DB';
   transform: rotate(-180deg);
-  display: inline-block;
+  color: var(--black)
 }
