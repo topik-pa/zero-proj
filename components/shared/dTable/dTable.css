@@ -65,3 +65,12 @@
   background-color: var(--darker-gray);
   color: var(--white);
 }
+
+#dtable th[data-order=desc]::before {
+  content: '\26DB';
+}
+#dtable th[data-order=asc]::before {
+  content: '\26DB';
+  transform: rotate(-180deg);
+  display: inline-block;
+}

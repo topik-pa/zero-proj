@@ -2,12 +2,12 @@ div(id="dtable")
   table
     //- caption Users table
     thead 
-      th id
-      th Name
-      th Surname
-      th Age
-      th Email
-      th Date
+      th(data-sortby="id") id
+      th(data-sortby="name") Name
+      th(data-sortby="surname") Surname
+      th(data-sortby="age") Age
+      th(data-sortby="email") Email
+      th(data-sortby="createdAt") Date
     tbody
   div(id="pagination")
     div Page #[span(id="page")] of #[span(id="pages")] pages 

@@ -2,6 +2,7 @@ const url = 'https://6442459433997d3ef90c1331.mockapi.io/users'
 const $table = document.getElementById('dtable')
 const $pagination = $table.querySelector('#pagination')
 const $navigation = $table.querySelector('ul')
+const $tHeader = $table.querySelector('thead')
 
 const initConf = {
   limit: 10,
@@ -21,8 +22,13 @@ const queryString = {
     qs += `&limit=${this.limit}`
     /* this.sorts.forEach(sort => {
       qs += `&sort=${encodeURIComponent(sort.order + sort.sortBy)}`
-    })
-    this.filters.forEach(f => {
+    }) */
+    const lastClickedSort = this.sorts[this.sorts.length - 1]
+    if (lastClickedSort) {
+      qs += `&sortby=${encodeURIComponent(lastClickedSort.sortBy)}`
+      qs += `&order=${encodeURIComponent(lastClickedSort.order)}`
+    }
+    /* this.filters.forEach(f => {
       const like = f.filter.charAt(f.filter.length - 1) === ']' ? '' : '%' // TODO: not proud...
       qs += `&${encodeURIComponent(f.col)}=${encodeURIComponent(f.filter)}${like}`
     }) */
@@ -43,8 +49,22 @@ const dateFilter = (date = undefined) => {
 
 $navigation.addEventListener('click', async (e) => {
   const nextPage = +e.target.dataset.page
+  if (!nextPage) return
   // queryString.skip = nextPage * queryString.limit
   pagination.page = nextPage
+  await loadRowsData()
+})
+
+$tHeader.addEventListener('click', async (e) => {
+  const dataset = e.target.dataset
+  if (!dataset) return
+  const sortBy = dataset.sortby
+  const order = dataset.order
+  for (const th of $tHeader.getElementsByTagName('th')) {
+    th.removeAttribute('data-order')
+  }
+  dataset.order = order === 'asc' ? 'desc' : order === 'desc' ? 'asc' : 'asc'
+  queryString.sorts.push({ sortBy, order: dataset.order })
   await loadRowsData()
 })
 
