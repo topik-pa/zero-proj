@@ -1,20 +1,20 @@
-#dtable {
+#dtable table {
   width: 100%;
 }
 
-#dtable caption {
-  margin: 1rem 0;
+/* #dtable caption {
+  margin: var(--x-small-space) 0;
   text-align: left;
-}
+} */
 
 #dtable th, #dtable td {
-  padding: 1rem 0;
+  padding: var(--x-small-space) 0;
   text-align: left;
   vertical-align: middle;
 }
 
 #dtable td {
-  padding: .2rem;
+  padding: 0;
   max-width: 12rem;
   white-space: nowrap;
   overflow: hidden;
@@ -32,5 +32,37 @@
 }
 
 #dtable tr img {
-  width: 2rem;
+  width: var(--large-space);
+}
+
+#pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--darker-gray);
+  padding-top: var(--normal-space);
+  margin-top: var(--normal-space);
+  font-size: var(--font-size-small)
+}
+#pagination span {
+  font-weight: 500;
+}
+#pagination ul {
+  display: flex;
+}
+#pagination li {
+  border: 1px solid var(--darker-gray);
+  border-radius: var(--border-radius-round);
+  padding: var(--xx-small-space);
+  width: var(--normal-space);
+  height: var(--normal-space);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 var(--x-small-space);
+  cursor: pointer;
+}
+#pagination li:hover, #pagination li.active {
+  background-color: var(--darker-gray);
+  color: var(--white);
 }

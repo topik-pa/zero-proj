@@ -1,10 +1,16 @@
-table(id="dtable")
-  caption Users in table:
-  thead 
-    th id
-    th firstName
-    th lastName
-    th age
-    th email
-    th image
-  tbody
+div(id="dtable")
+  table
+    //- caption Users table
+    thead 
+      th id
+      th firstName
+      th lastName
+      th age
+      th email
+      th image
+    tbody
+  div(id="pagination")
+    div Page #[span(id="page")] of #[span(id="pages")] pages 
+    ul
+    div Showing #[span(id="partial")] of #[span(id="total")] results
+    
