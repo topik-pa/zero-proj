@@ -1,15 +1,15 @@
-const url = 'https://dummyjson.com/users'
+const url = 'https://6442459433997d3ef90c1331.mockapi.io/users'
 const $table = document.getElementById('dtable')
 const $pagination = $table.querySelector('#pagination')
 const $navigation = $table.querySelector('ul')
 
 const initConf = {
-  limit: 7,
+  limit: 10,
   page: 1
 }
 
 const queryString = {
-  skip: initConf.page * initConf.limit,
+  /* skip: initConf.page * initConf.limit, */
   limit: initConf.limit,
   sortBy: undefined,
   order: undefined,
@@ -17,7 +17,7 @@ const queryString = {
   sorts: [],
   get () {
     let qs = '?'
-    qs += `skip=${this.skip}`
+    qs += `page=${pagination.page}`
     qs += `&limit=${this.limit}`
     /* this.sorts.forEach(sort => {
       qs += `&sort=${encodeURIComponent(sort.order + sort.sortBy)}`
@@ -40,8 +40,8 @@ const pagination = {
 // let $selectedPage = $table.querySelector(`li[data-page=${pagination.page}]`)
 
 $navigation.addEventListener('click', async (e) => {
-  const nextPage = --e.target.dataset.page
-  queryString.skip = nextPage * queryString.limit
+  const nextPage = +e.target.dataset.page
+  // queryString.skip = nextPage * queryString.limit
   pagination.page = nextPage
   await loadRowsData()
 })
@@ -55,13 +55,11 @@ const buildRows = (rows) => {
     const $tr = document.createElement('tr')
     $tr.innerHTML = `
       <td>${row.id}</td>
-      <td>${row.firstName}</td>
-      <td>${row.lastName}</td>
+      <td>${row.name}</td>
+      <td>${row.surname}</td>
       <td>${row.age}</td>
       <td>${row.email}</td>
-      <td>
-        <img alt="${row.firstName}" src="${row.image}" />
-      </td>
+      <td>${row.createdAt}</td>
     `
     $tBody.appendChild($tr)
   }
@@ -70,16 +68,16 @@ const buildRows = (rows) => {
 const updateDOMPagination = () => {
   $pagination.querySelector('#total').innerText = pagination.total
   $pagination.querySelector('#partial').innerText = pagination.partial
-  $pagination.querySelector('#page').innerText = (pagination.page + 1)
+  $pagination.querySelector('#page').innerText = (pagination.page)
   $pagination.querySelector('#pages').innerText = pagination.pages
 }
 
 const setNavigation = () => {
   $navigation.innerText = ''
-  for (let i = 0; i < pagination.pages; i++) {
+  for (let i = 1; i <= pagination.pages; i++) {
     const $li = document.createElement('li')
-    $li.innerHTML = `${(i + 1)}`
-    $li.setAttribute('data-page', (i + 1))
+    $li.innerHTML = `${(i)}`
+    $li.setAttribute('data-page', (i))
     if (i === pagination.page) $li.classList.add('active')
     $navigation.appendChild($li)
   }
@@ -90,9 +88,9 @@ const loadRowsData = async () => {
   await fetch(url + queryString.get())
     .then(response => response.json())
     .then((json) => {
-      buildRows(json.users)
-      pagination.total = json.total
-      pagination.pages = Math.ceil(json.total / queryString.limit)
+      buildRows(json)
+      pagination.total = 100 // json.total // the current service do not returns a total value
+      pagination.pages = Math.ceil(pagination.total / queryString.limit)
       // if (pagination.pages === 0) pagination.pages++ // Do not display "0" for page
       updateDOMPagination()
       setNavigation()
