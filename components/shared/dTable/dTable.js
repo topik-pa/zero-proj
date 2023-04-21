@@ -37,7 +37,9 @@ const pagination = {
   page: initConf.page
 }
 
-// let $selectedPage = $table.querySelector(`li[data-page=${pagination.page}]`)
+const dateFilter = (date = undefined) => {
+  return new Date(date).toLocaleString()
+}
 
 $navigation.addEventListener('click', async (e) => {
   const nextPage = +e.target.dataset.page
@@ -59,7 +61,7 @@ const buildRows = (rows) => {
       <td>${row.surname}</td>
       <td>${row.age}</td>
       <td>${row.email}</td>
-      <td>${row.createdAt}</td>
+      <td>${dateFilter(row.createdAt)}</td>
     `
     $tBody.appendChild($tr)
   }
