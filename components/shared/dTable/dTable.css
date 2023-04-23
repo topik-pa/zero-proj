@@ -21,12 +21,12 @@
 }
 
 #dtable tbody tr:hover {
-  background-color: var(--darker-gray);
+  background-color: var(--gray);
   color: var(--white);
 }
 
 #dtable thead {
-  border-bottom: 1px solid var(--darker-gray);
+  border-bottom: 1px solid var(--gray);
   font-weight: 500;
 }
 
@@ -38,7 +38,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid var(--darker-gray);
+  border-top: 1px solid var(--gray);
   padding-top: var(--normal-space);
   margin-top: var(--normal-space);
   font-size: var(--font-size-small)
@@ -50,20 +50,11 @@
   display: flex;
 }
 #pagination li {
-  border: 1px solid var(--darker-gray);
-  border-radius: var(--border-radius-round);
-  padding: var(--xx-small-space);
-  width: var(--normal-space);
-  height: var(--normal-space);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
   margin: 0 var(--x-small-space);
   cursor: pointer;
 }
 #pagination li:hover, #pagination li.active {
-  background-color: var(--darker-gray);
-  color: var(--white);
+  text-decoration: underline;
 }
 
 #dtable th {
