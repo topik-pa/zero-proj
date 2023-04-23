@@ -52,3 +52,8 @@
   --privacy: 999;
   --gototop: 9999;
 }
+
+.dark:root {
+  --primary: var(--lighter-gray);
+  --secondary: var(--darkest-gray);
+}
