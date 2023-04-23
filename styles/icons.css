@@ -27,14 +27,20 @@
   text-shadow: 0px 0px 1px black;
 }
 
+.icon-menu:before {
+  content: "\e901";
+}
+.icon-adjust:before {
+  content: "\e903";
+}
 .icon-cheveron-up:before {
   content: "\e900";
 }
-.icon-menu:before {
-  content: "\e9bd";
+.icon-close:before {
+  content: "\e902";
 }
-.icon-mail2:before {
-  content: "\ea84";
+.icon-envelop:before {
+  content: "\e945";
 }
 .icon-facebook:before {
   content: "\ea90";
@@ -47,7 +53,4 @@
 }
 .icon-linkedin2:before {
   content: "\eaca";
-}
-.icon-pinterest:before {
-  content: "\ead1";
 }
