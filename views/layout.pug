@@ -19,6 +19,8 @@ html
       meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
       meta(name="author" content=owner)
     link(rel="shortcut icon", href="/public/favicon.ico", type="image/x-icon")
+    script. 
+      if (localStorage.getItem('dark')) document.documentElement.classList.add('dark')
     if prod
         link(rel="stylesheet", type="text/css", href="/dist/main.css")
     else

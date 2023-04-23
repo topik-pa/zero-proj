@@ -1,6 +1,6 @@
 const toggleDarkMode = () => {
   const $toggledark = document.getElementById('toggle-dark')
-  if (localStorage.getItem('dark')) document.documentElement.classList.add('dark')
+  // if (localStorage.getItem('dark')) document.documentElement.classList.add('dark') // Moved to <head>
   // Toggle between dark mode
   function toggle () {
     document.documentElement.classList.toggle('dark')
