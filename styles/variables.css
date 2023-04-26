@@ -79,3 +79,10 @@
   --primary: var(--lighter-gray);
   --secondary: var(--darkest-gray);
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: var(--lighter-gray);
+    --secondary: var(--darkest-gray);
+  }
+}

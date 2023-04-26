@@ -28,6 +28,7 @@ https://eslint.org/docs/user-guide/getting-started
 # menu with icons
 # PLP
 # form
+# icons
 
 
 
