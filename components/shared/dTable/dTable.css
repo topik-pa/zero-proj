@@ -43,20 +43,6 @@
   margin-top: var(--normal-space);
   font-size: var(--font-size-small)
 }
-#pagination span {
-  font-weight: 500;
-}
-#pagination ul {
-  display: flex;
-}
-#pagination li {
-  margin: 0 var(--x-small-space);
-  cursor: pointer;
-}
-#pagination li:hover, #pagination li.active {
-  text-decoration: underline;
-}
-
 #dtable th {
   cursor: pointer;
 }
@@ -75,6 +61,30 @@
   color: var(--black)
 }
 
+#pagination span {
+  font-weight: 500;
+}
+#pagination ul {
+  display: flex;
+}
+#pagination li {
+  /*border: 1px solid var(--darker-gray);
+  border-radius: var(--border-radius-round);
+  padding: var(--xx-small-space);
+  width: var(--normal-space);
+  height: var(--normal-space);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;*/
+  margin: 0 var(--x-small-space);
+  cursor: pointer;
+}
+#pagination li:hover, #pagination li.active {
+  text-decoration: underline;
+}
+
 #filter {
   margin: var(--small-space) 0;
+  /*background-color: var(--darker-gray);
+  color: var(--white);*/
 }
