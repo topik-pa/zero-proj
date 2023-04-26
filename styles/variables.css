@@ -16,9 +16,20 @@
   --primary: var(--darkest-gray);
   --secondary: var(--lighter-gray);
   --tertiary: var(--blue);
+
   --error: var(--red);
   --success: var(--green);
   --link: var(--blue);
+  --text: var(--primary);
+  --background: var(--secondary);
+
+  /* TRANSPARENCIES */
+  --transparent: .2;
+  --semi-transparent: .7;
+  --wt: rgba(var(--white), var(--transparent));
+  --wst: rgba(var(--white), var(--semi-transparent));
+  --bt: rgba(var(--black), var(--transparent));
+  --wst: rgba(var(--black), var(--semi-transparent));
 
   /* FONT SIZES */
   --font-size-very-small: .85rem;
@@ -28,6 +39,10 @@
   --font-size-bigger: 1.5rem;
   --font-size-huge: 1.8rem;
   --font-size-biggest: 2.2rem;
+
+  /* SHADOWS */
+  --shadow: 0 0 10px 0 var(--black);
+  --text-shadow: 0 3px 3px var(--bt);
 
   /* DIMENSIONS */
   --xx-small-space: .2rem;
@@ -40,10 +55,17 @@
 
   --view-padding: var(--large-space);
   --section-margin: var(--x-large-space);
+  --gap: var(--x-small-space);
+  --button-padding: var(--small-space);
+
+  /* ICONS */
+  --small-icon: var(--small-space);
+  --normal-icon: var(--normal-space);
+  --big-icon: var(--x-large-space);
 
   /* BORDER RADIUS */
   --border-radius-small: .3rem;
-  --border-radius-big: .6rem;
+  --border-radius-big: .9rem;
   --border-radius-round: 50%;
 
   /* Z-INDEXES */
