@@ -22,8 +22,9 @@ i(class="icon-menu")
 nav(id="main-menu")
   ul
     each link in links
-      li
-        span(class=link.class)
+      li(class = (title === link.name) ? "active" : "")
+        if link.class
+          span(class=link.class)
         a(href=link.url, title=link.name) #{link.name.toUpperCase()}
 
 

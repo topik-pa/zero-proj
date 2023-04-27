@@ -5,6 +5,10 @@
   color: var(--link);
 }
 
+#main-menu li.active {
+  text-decoration: underline;
+}
+
 #main-menu li:hover {
   filter: brightness(90%);
 }
