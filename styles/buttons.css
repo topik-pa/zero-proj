@@ -24,3 +24,8 @@
   color: var(--secondary);
   border-color: var(--light-gray);
 }
+
+.btn.disabled {
+  pointer-events: none;
+  cursor: default;
+}
