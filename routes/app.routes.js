@@ -10,6 +10,14 @@ module.exports = app => {
     ]
     res.render('users/users', { id: 'users', title: 'Users', url: req.url, breadcrumbs })
   })
+  app.get('/form', (req, res) => {
+    const breadcrumbs = [
+      {
+        name: 'form'
+      }
+    ]
+    res.render('form/form', { id: 'form', title: 'Form', url: req.url, breadcrumbs })
+  })
   app.get('/privacy', (req, res) => {
     const breadcrumbs = [
       {
