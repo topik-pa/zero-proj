@@ -79,10 +79,15 @@
   --primary: var(--lighter-gray);
   --secondary: var(--darkest-gray);
 }
-
+.dark .invert {
+  filter: invert(1);
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: var(--lighter-gray);
     --secondary: var(--darkest-gray);
+  }
+  .invert {
+    filter: invert(1);
   }
 }
