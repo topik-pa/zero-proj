@@ -39,6 +39,9 @@
 .icon-close:before {
   content: "\e902";
 }
+.icon-home:before {
+  content: "\e904";
+}
 .icon-envelop:before {
   content: "\e945";
 }

@@ -1,8 +1,9 @@
 - 
-  let pages = [
+  let links = [
     {
       name: 'Home',
-      url: '/'
+      url: '/',
+      class: 'icon-home'
     },
     {
       name: 'Users',
@@ -20,9 +21,10 @@
 i(class="icon-menu") 
 nav(id="main-menu")
   ul
-    each page in pages
+    each link in links
       li
-        a(href=page.url, title=page.name) #{page.name.toUpperCase()}
+        span(class=link.class)
+        a(href=link.url, title=link.name) #{link.name.toUpperCase()}
 
 
 

@@ -21,14 +21,9 @@ git push -u origin main
 https://eslint.org/docs/user-guide/getting-started
 
 
-
-# api endpoint ?
 # service worker in observable
-# Custom header + bearer token
-# menu with icons
 # PLP
 # form
-# icons
 
 
 

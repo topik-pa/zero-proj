@@ -1,12 +1,11 @@
 #main-menu li {
   display: inline;
-}
-
-#main-menu a {
   padding-left: var(--large-space);
   font-weight: 500;
+  color: var(--link);
 }
-#main-menu a:hover {
+
+#main-menu li:hover {
   filter: brightness(90%);
 }
 
