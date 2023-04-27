@@ -40,7 +40,7 @@ const api = {
 
 export default api */
 
-export async function proxyReq (path = '', data = {}, method = 'GET', headers = {}) {
+export async function proxyFetch (path = '', data = {}, method = 'GET', headers = {}) {
   const obj = {}
   const params = {
     method: method,
