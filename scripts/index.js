@@ -38,11 +38,6 @@ if (document.querySelector('body#privacy')) {
     module.privacy.init()
   })
 }
-if (document.querySelector('body#contacts')) {
-  import('../views/contatti/contatti.js').then((module) => {
-    module.contatti.init()
-  })
-}
 if (document.querySelector('body#err404')) {
   import('../views/404/404.js').then((module) => {
     module.err404.init()
