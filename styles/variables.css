@@ -59,6 +59,7 @@
   --gap: var(--x-small-space);
   --button-padding: var(--small-space);
   --content: 80%;
+  --input-width: calc(var(--xx-large-space) * 7);
 
   /* ICONS */
   --small-icon: var(--small-space);
