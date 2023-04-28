@@ -10,7 +10,7 @@
   --black:        #000000;
 
   --blue: #3e78e8;
-  --red:  #C91E2C;
+  --red:  #c91e2c;
   --green:#3db818;
 
   --primary: var(--darkest-gray);
@@ -26,10 +26,11 @@
   /* TRANSPARENCIES */
   --transparent: .2;
   --semi-transparent: .7;
-  --wt: rgba(var(--white), var(--transparent));
-  --wst: rgba(var(--white), var(--semi-transparent));
-  --bt: rgba(var(--black), var(--transparent));
-  --wst: rgba(var(--black), var(--semi-transparent));
+  --wt: rgba(255, 255, 255, var(--transparent));
+  --wst: rgba(255, 255, 255, var(--semi-transparent));
+  --bt: rgba(0, 0, 0, var(--transparent));
+  --wst: rgba(0, 0, 0, var(--semi-transparent));
+  --rt: rgba(201, 30, 44, var(--transparent));
 
   /* FONT SIZES */
   --font-size-very-small: .85rem;
@@ -57,6 +58,7 @@
   --section-margin: var(--x-large-space);
   --gap: var(--x-small-space);
   --button-padding: var(--small-space);
+  --content: 80%;
 
   /* ICONS */
   --small-icon: var(--small-space);

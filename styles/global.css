@@ -24,3 +24,10 @@ a {
 em {
   font-weight: 500;
 }
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
