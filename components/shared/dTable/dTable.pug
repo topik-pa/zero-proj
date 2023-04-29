@@ -4,12 +4,16 @@ div(id="dtable")
   table
     //- caption Users table
     thead 
+      //- APIRELATED
       th(data-sortby="id") id
-      th(data-sortby="name") Name
-      th(data-sortby="surname") Surname
-      th(data-sortby="age") Age
-      th(data-sortby="email") Email
+      th(data-sortby="player1.name") P1 Name
+      th(data-sortby="player2.name") P2 Name
+      th(data-sortby="score") Score
+      th(data-sortby="tournament.name") Tournament
+      th(data-sortby="tournament.value") Tournament Value
+      th(data-sortby="surface") Surface
       th(data-sortby="createdAt") Date
+      //- APIRELATED
     tbody
   div(id="pagination")
     div Page #[span(id="page")] of #[span(id="pages")] pages 

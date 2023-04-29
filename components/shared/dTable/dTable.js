@@ -1,4 +1,4 @@
-const url = 'https://6442459433997d3ef90c1331.mockapi.io/users'
+const url = 'http://localhost:8080/matches' // APIRELATED
 const $table = document.getElementById('dtable')
 const $pagination = $table.querySelector('#pagination')
 const $navigation = $table.querySelector('ul')
@@ -13,8 +13,8 @@ const startFilterRequestTimer = () => {
 }
 
 const initConf = {
-  limit: 10,
-  page: 1,
+  limit: 25,
+  page: 0,
   filterReqDelay: 800
 }
 
@@ -62,7 +62,7 @@ const dateFilter = (date = undefined) => {
 
 $navigation.addEventListener('click', async (e) => {
   const nextPage = +e.target.dataset.page
-  if (!nextPage) return
+  if (nextPage === undefined || pagination.page === nextPage) return
   // queryString.skip = nextPage * queryString.limit
   pagination.page = nextPage
   await loadRowsData()
@@ -98,30 +98,39 @@ const buildRows = (rows) => {
   // $tCaption.innerText += ' ' + rows.length
   for (const row of rows) {
     const $tr = document.createElement('tr')
+    // APIRELATED
     $tr.innerHTML = `
       <td>${row.id}</td>
-      <td>${row.name}</td>
-      <td>${row.surname}</td>
-      <td>${row.age}</td>
-      <td>${row.email}</td>
+      <td>${row.player1.name}</td>
+      <td>${row.player2.name}</td>
+      <td>${row.score}</td>
+      <td>${row.tournament.name}</td>
+      <td>${row.tournament.value}</td>
+      <td>${row.surface}</td>
       <td>${dateFilter(row.createdAt)}</td>
     `
+    // APIRELATED
     $tBody.appendChild($tr)
   }
 }
 
 const updateDOMPagination = () => {
+  if (pagination.total === 0) {
+    $pagination.classList.add('hide')
+  } else {
+    $pagination.classList.remove('hide')
+  }
   $pagination.querySelector('#total').innerText = pagination.total
   $pagination.querySelector('#partial').innerText = pagination.partial
-  $pagination.querySelector('#page').innerText = (pagination.page)
+  $pagination.querySelector('#page').innerText = (pagination.page + 1)
   $pagination.querySelector('#pages').innerText = pagination.pages
 }
 
 const setNavigation = () => {
   $navigation.innerText = ''
-  for (let i = 1; i <= pagination.pages; i++) {
+  for (let i = 0; i < pagination.pages; i++) {
     const $li = document.createElement('li')
-    $li.innerHTML = `${(i)}`
+    $li.innerText = (i + 1)
     $li.setAttribute('data-page', (i))
     if (i === pagination.page) $li.classList.add('active')
     $navigation.appendChild($li)
@@ -133,18 +142,22 @@ const loadRowsData = async () => {
   await fetch(url + queryString.get())
     .then(response => response.json())
     .then((json) => {
-      buildRows(json)
-      pagination.total = 100 // json.total // the current service do not returns a total value
-      pagination.pages = Math.ceil(pagination.total / queryString.limit)
+      buildRows(json.matches) // APIRELATED
+      pagination.total = json.total // the current service do not returns a total value
+      // pagination.pages = Math.ceil(pagination.total / queryString.limit)
       // if (pagination.pages === 0) pagination.pages++ // Do not display "0" for page
-      updateDOMPagination()
-      setNavigation()
+      // updateDOMPagination()
+      // setNavigation()
     })
     .catch((error) => {
       $table.classList.add('error')
       console.error(error)
+      pagination.total = 0
     })
     .finally(() => {
+      pagination.pages = Math.ceil(pagination.total / queryString.limit)
+      updateDOMPagination()
+      setNavigation()
       $table.classList.toggle('loading')
     })
 }

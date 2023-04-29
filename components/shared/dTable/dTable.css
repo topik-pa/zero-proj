@@ -64,8 +64,18 @@
 #pagination span {
   font-weight: 500;
 }
+#pagination div {
+  width: 20%;
+}
+#pagination div:nth-child(3) {
+  text-align: right;
+}
 #pagination ul {
   display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  padding: 0 var(--x-small-space);
+  justify-content: space-between;
 }
 #pagination li {
   /*border: 1px solid var(--darker-gray);
@@ -76,11 +86,14 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;*/
-  margin: 0 var(--x-small-space);
+  margin: var(--x-small-space);
   cursor: pointer;
 }
 #pagination li:hover, #pagination li.active {
   text-decoration: underline;
+}
+#pagination li.active {
+  cursor: auto;
 }
 
 #filter {
