@@ -68,7 +68,7 @@ label[for*="radio"] {
 /* hide default radio button  */
 label[for*="radio"] input[type=radio] {
   position: absolute; /* prevent taking any space */
-  /* cross-browser hidingg */
+  /* cross-browser hiding */
   opactiy: 0;
   width:0; 
   height:0;
@@ -81,7 +81,7 @@ label[for*="radio"] span {
   left:0;
   width:20px; 
   height:20px;
-  background-color: #ddd;
+  background-color: var(--light-gray);
   border-radius: 50%;
   transition: .3s background-color; /* slight transition */
 }
@@ -136,7 +136,7 @@ label[for*="checkbox"] span {
   left:0;
   width:20px; 
   height:20px;
-  background-color: #ddd;
+  background-color: var(--light-gray);
   transition: .3s background-color; /* slight transition */
   border-radius: var(--border-radius-small);
 }
@@ -151,17 +151,17 @@ label[for*="checkbox"] span:after {
   top: 2px;
   width: 4px;
   height: 10px;
-  border: solid white;
+  border: solid var(--white);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
 label[for*="checkbox"]:hover span {
-  background-color: #ccc;
+  background-color: var(--light-gray);
 }
 
 /**** Here's the trick ***/
 label[for*="checkbox"] input:checked ~ span {
-  background-color: #2eaadc;
+  background-color: var(--blue);
 }
 label[for*="checkbox"] input:checked ~ span:after {
   display:block;
