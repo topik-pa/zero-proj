@@ -38,6 +38,11 @@ if (document.querySelector('body#form')) {
     module.form.init()
   })
 }
+if (document.querySelector('body#plp')) {
+  import('../views/plp/plp.js').then((module) => {
+    module.plp.init()
+  })
+}
 if (document.querySelector('body#privacy')) {
   import('../views/privacy/privacy.js').then((module) => {
     module.privacy.init()
