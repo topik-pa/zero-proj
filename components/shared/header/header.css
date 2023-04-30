@@ -1,5 +1,5 @@
 header section {
-  padding: 5px var(--view-padding);
+  padding: var(--xx-small-space) var(--view-padding);
   display: flex;
   justify-content: space-between;
   align-items: center;

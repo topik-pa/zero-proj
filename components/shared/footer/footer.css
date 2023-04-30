@@ -5,7 +5,7 @@ footer {
   
 }
 footer section {
-  padding: var(--x-small-space) 0;
+  padding: var(--xx-small-space) var(--view-padding);
 }
 
 footer section:nth-child(1) {

@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -7,10 +11,13 @@ body {
   letter-spacing: .03rem;
   color: var(--primary);
   background-color: var(--secondary);
+  display: flex;
+  flex-direction: column;
 }
 
 main {
   padding: var(--view-padding);
+  flex: auto;
 }
 main section {
   margin: var(--section-margin) 0;
