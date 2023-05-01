@@ -29,7 +29,7 @@
   --wt: rgba(255, 255, 255, var(--transparent));
   --wst: rgba(255, 255, 255, var(--semi-transparent));
   --bt: rgba(0, 0, 0, var(--transparent));
-  --wst: rgba(0, 0, 0, var(--semi-transparent));
+  --bst: rgba(0, 0, 0, var(--semi-transparent));
   --rt: rgba(201, 30, 44, var(--transparent));
 
   /* FONT SIZES */

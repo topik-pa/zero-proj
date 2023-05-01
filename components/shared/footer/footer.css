@@ -2,10 +2,10 @@ footer {
   display: flex;
   flex-direction: column;
   color: var(--tertiary);
-  
+  font-size: var(--font-size-small);
 }
 footer section {
-  padding: var(--xx-small-space) var(--view-padding);
+  padding: var(--x-small-space) var(--view-padding);
 }
 
 footer section:nth-child(1) {
