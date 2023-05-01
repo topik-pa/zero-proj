@@ -7,7 +7,7 @@ const initConf = {
   page: 1
 }
 
-$more.addEventListener('click', async (e) => {
+$more.querySelector('.btn').addEventListener('click', async (e) => {
   initConf.page++
   await loadRemoteData()
 })
@@ -21,12 +21,29 @@ const queryString = {
   }
 }
 
+const mutationObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation, i) => {
+    if(i>0) return
+    if(mutation.target.id === "products") {
+      Array.from(mutation.target.children).map((prod) => {
+        prod.querySelector('img').addEventListener("load", () => {
+          prod.classList.remove('loading')
+        })
+      })
+    }
+  });
+});
+mutationObserver.observe($products, {
+  childList: true
+});
+
+
 function generateHTML(strings, product) {
   return `
       <h2>${product.name} ${product.surname}</h2>
       <p>Email: ${product.email}</p>
       <p>Age: ${product.age}</p>
-      <img alt="${product.name} image" src="${product.avatar}" />
+      <img alt="${product.name} image" src="${product.avatar}"/>
   `
 }
 
@@ -35,24 +52,25 @@ const printProducts = (products) => {
     const productInnerHTML = generateHTML`${p}`
     const prodEl = document.createElement('div')
     prodEl.classList.add('product')
+    prodEl.classList.add('loading')
     prodEl.innerHTML = productInnerHTML;
     $products.appendChild(prodEl)
   }
 }
 
 const loadRemoteData = async () => {
-  $products.classList.toggle('loading')
+  $more.classList.toggle('loading')
   await fetch(url + queryString.get())
     .then(response => response.json())
     .then((json) => {
       printProducts(json) // APIRELATED
     })
     .catch((error) => {
-      $products.classList.add('error')
+      $more.classList.add('error')
       console.error(error)
     })
     .finally(() => {
-      $products.classList.toggle('loading')
+      $more.classList.toggle('loading')
     })
 }
 
