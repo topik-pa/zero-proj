@@ -7,7 +7,7 @@ const initConf = {
   page: 1
 }
 
-$more.querySelector('.btn').addEventListener('click', async (e) => {
+$more.querySelector('.btn').addEventListener('click', async () => {
   initConf.page++
   await loadRemoteData()
 })
@@ -31,8 +31,8 @@ const mutationObserver = new MutationObserver((mutations) => {
         })
       })
     }
-  });
-});
+  })
+})
 mutationObserver.observe($products, {
   childList: true
 });
@@ -79,7 +79,6 @@ export const plp = {
     console.log('PLP')
     const css = await import('./plp.css', {assert: { type: 'css' }})
     document.adoptedStyleSheets = [css.default]
-
     await loadRemoteData()
   }
 }

@@ -3,57 +3,42 @@ const $table = document.getElementById('dtable')
 const $pagination = $table.querySelector('#pagination')
 const $navigation = $table.querySelector('ul')
 const $tHeader = $table.querySelector('thead')
-const $filter = $table.querySelector('#filter input')
+const $filters = $tHeader.querySelectorAll('input')
 let filterTimer
 const startFilterRequestTimer = () => {
   // Add a little pause before call the remote server (only on filters)
   filterTimer = setTimeout(async () => {
     await loadRowsData()
-  }, initConf.filterReqDelay)
+  }, tConfig.filterReqDelay)
 }
 
-const initConf = {
+const tConfig = {
   limit: 25,
   page: 0,
+  total: undefined,
+  pages: undefined,
+  start: undefined,
+  end: undefined,
   filterReqDelay: 800
 }
 
 const queryString = {
-  /* skip: initConf.page * initConf.limit, */
-  limit: initConf.limit,
-  sortBy: undefined,
-  order: undefined,
   filters: [],
   sorts: [],
   get () {
     let qs = '?'
-    qs += `page=${pagination.page}`
-    qs += `&limit=${this.limit}`
-    /* this.sorts.forEach(sort => {
-      qs += `&sort=${encodeURIComponent(sort.order + sort.sortBy)}`
-    }) */
-    const lastClickedSort = this.sorts[this.sorts.length - 1]
-    if (lastClickedSort) {
-      qs += `&sortby=${encodeURIComponent(lastClickedSort.sortBy)}`
-      qs += `&order=${encodeURIComponent(lastClickedSort.order)}`
-    }
-    /* this.filters.forEach(f => {
-      const like = f.filter.charAt(f.filter.length - 1) === ']' ? '' : '%' // TODO: not proud...
-      qs += `&${encodeURIComponent(f.col)}=${encodeURIComponent(f.filter)}${like}`
-    }) */
-    const lastTypedFilter = this.filters[this.filters.length - 1]
-    if (lastTypedFilter) {
-      qs += `&filter=${encodeURIComponent(lastTypedFilter)}`
-    }
+    qs += `page=${tConfig.page}`
+    qs += `&limit=${tConfig.limit}`
+    this.sorts.forEach(sort => {
+      qs += `&sortby=${encodeURIComponent(sort.sortBy)}`
+      qs += `&order=${sort.order}`
+    })
+    this.filters.forEach(f => {
+      qs += `&filterby=${encodeURIComponent(f.filterBy)}`
+      qs += `&filter=${encodeURIComponent(f.filter)}`
+    })
     return qs
   }
-}
-
-const pagination = {
-  total: undefined,
-  partial: queryString.limit,
-  pages: undefined,
-  page: initConf.page
 }
 
 const dateFilter = (date = undefined) => {
@@ -62,34 +47,42 @@ const dateFilter = (date = undefined) => {
 
 $navigation.addEventListener('click', async (e) => {
   const nextPage = +e.target.dataset.page
-  if (nextPage === undefined || pagination.page === nextPage) return
-  // queryString.skip = nextPage * queryString.limit
-  pagination.page = nextPage
+  if (nextPage === undefined || tConfig.page === nextPage) return
+  tConfig.page = nextPage
   await loadRowsData()
 })
 
 $tHeader.addEventListener('click', async (e) => {
-  const dataset = e.target.dataset
-  if (!dataset) return
-  const sortBy = dataset.sortby
-  const order = dataset.order
+  const sortBy = e.target.dataset.path
+  if (!sortBy) return
+  const order = e.target.dataset.order
   for (const th of $tHeader.getElementsByTagName('th')) {
     th.removeAttribute('data-order')
   }
-  dataset.order = order === 'asc' ? 'desc' : order === 'desc' ? 'asc' : 'asc'
-  queryString.sorts.push({ sortBy, order: dataset.order })
+  e.target.dataset.order = order === 'asc' ? 'desc' : order === 'desc' ? 'asc' : 'asc'
+  /* queryString.sorts = queryString.sorts.filter((sort) => {
+    return sort.sortBy !== sortBy
+  }) */
+  queryString.sorts.push({ sortBy, order: e.target.dataset.order })
   await loadRowsData()
 })
 
-$filter.addEventListener('input', async (e) => {
-  queryString.filters.push(e.target.value)
-  if (!filterTimer) {
-    startFilterRequestTimer()
-  } else {
-    clearTimeout(filterTimer)
-    startFilterRequestTimer()
-  }
-})
+for (const $filter of $filters) {
+  $filter.addEventListener('input', async (e) => {
+    const filter = e.target.value
+    const filterBy = e.target.parentElement.dataset.path
+    /* queryString.filters = queryString.filters.filter((filter) => {
+      return filter.filterby !== filterby
+    }) */
+    queryString.filters.push({ filterBy, filter })
+    if (!filterTimer) {
+      startFilterRequestTimer()
+    } else {
+      clearTimeout(filterTimer)
+      startFilterRequestTimer()
+    }
+  })
+}
 
 const buildRows = (rows) => {
   const $tBody = $table.getElementsByTagName('tbody')[0]
@@ -115,24 +108,25 @@ const buildRows = (rows) => {
 }
 
 const updateDOMPagination = () => {
-  if (pagination.total === 0) {
+  if (tConfig.total === 0) {
     $pagination.classList.add('hide')
   } else {
     $pagination.classList.remove('hide')
   }
-  $pagination.querySelector('#total').innerText = pagination.total
-  $pagination.querySelector('#partial').innerText = pagination.partial
-  $pagination.querySelector('#page').innerText = (pagination.page + 1)
-  $pagination.querySelector('#pages').innerText = pagination.pages
+  $pagination.querySelector('#total').innerText = tConfig.total
+  $pagination.querySelector('#start').innerText = tConfig.start
+  $pagination.querySelector('#end').innerText = tConfig.end
+  $pagination.querySelector('#page').innerText = (tConfig.page + 1)
+  $pagination.querySelector('#pages').innerText = tConfig.pages
 }
 
 const setNavigation = () => {
   $navigation.innerText = ''
-  for (let i = 0; i < pagination.pages; i++) {
+  for (let i = 0; i < tConfig.pages; i++) {
     const $li = document.createElement('li')
     $li.innerText = (i + 1)
     $li.setAttribute('data-page', (i))
-    if (i === pagination.page) $li.classList.add('active')
+    if (i === tConfig.page) $li.classList.add('active')
     $navigation.appendChild($li)
   }
 }
@@ -143,19 +137,21 @@ const loadRowsData = async () => {
     .then(response => response.json())
     .then((json) => {
       buildRows(json.matches) // APIRELATED
-      pagination.total = json.total // the current service do not returns a total value
-      // pagination.pages = Math.ceil(pagination.total / queryString.limit)
-      // if (pagination.pages === 0) pagination.pages++ // Do not display "0" for page
-      // updateDOMPagination()
-      // setNavigation()
+      tConfig.total = json.total // APIRELATED
     })
     .catch((error) => {
       $table.classList.add('error')
       console.error(error)
-      pagination.total = 0
+      tConfig.total = 0
     })
     .finally(() => {
-      pagination.pages = Math.ceil(pagination.total / queryString.limit)
+      tConfig.pages = Math.ceil(tConfig.total / tConfig.limit)
+      tConfig.end = tConfig.limit * (tConfig.page + 1)
+      tConfig.start = (tConfig.end - tConfig.limit) + 1
+      if (tConfig.end > tConfig.total) {
+        tConfig.end = tConfig.total
+        tConfig.start = (tConfig.limit * (tConfig.pages - 1)) + 1
+      }
       updateDOMPagination()
       setNavigation()
       $table.classList.toggle('loading')
