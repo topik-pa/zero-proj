@@ -41,7 +41,7 @@ const dateFilter = (date = undefined) => {
 
 $navigation.addEventListener('click', async (e) => {
   const nextPage = +e.target.dataset.page
-  if (nextPage === undefined || tConfig.page === nextPage) return
+  if (isNaN(nextPage) || tConfig.page === nextPage) return
   tConfig.page = nextPage
   await loadRowsData()
 })
