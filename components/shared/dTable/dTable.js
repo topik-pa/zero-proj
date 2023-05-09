@@ -1,8 +1,17 @@
+/**
+ * @file dTable - A Dynamic Pure JS Table
+ * @description dTable provides data sorting, filtering and pagination
+ * @author Marco Pavan
+ * @version 1.0
+ * @copyright Marco Pavan 2023
+ */
+
 const $table = document.getElementById('dtable')
 const $pagination = $table.querySelector('#pagination')
 const $navigation = $table.querySelector('ul')
 const $tHeader = $table.querySelector('thead')
 const $filters = $tHeader.querySelectorAll('input')
+
 let filterTimer
 
 const tConfig = { // APIRELATED
@@ -84,6 +93,10 @@ for (const $filter of $filters) {
   })
 }
 
+/**
+ * buildRows
+ * @description Build a table row for every result found on remote data
+ */
 const buildRows = (rows) => {
   const $tBody = $table.getElementsByTagName('tbody')[0]
   $tBody.innerText = ''
@@ -105,6 +118,10 @@ const buildRows = (rows) => {
   }
 }
 
+/**
+ * updateDOMPagination
+ * @description Update pagination data like current totals and pages number
+ */
 const updateDOMPagination = () => {
   $pagination.querySelector('#total').innerText = tConfig.total
   $pagination.querySelector('#start').innerText = tConfig.start
@@ -113,6 +130,10 @@ const updateDOMPagination = () => {
   $pagination.querySelector('#pages').innerText = tConfig.pages
 }
 
+/**
+ * setNavigation
+ * @description Print pagination links
+ */
 const setNavigation = () => {
   $navigation.innerText = ''
   for (let i = 0; i < tConfig.pages; i++) {
@@ -124,6 +145,11 @@ const setNavigation = () => {
   }
 }
 
+/**
+ * loadRowsData
+ * @description Load remote data, inits configuration data, starts pagination features
+ * @async
+ */
 const loadRowsData = async () => {
   $table.classList.add('loading')
   await fetch(tConfig.url + queryString.get())
@@ -158,6 +184,10 @@ const loadRowsData = async () => {
     })
 }
 
+/**
+ * Main object
+ * @type {{init: function}}
+ */
 const dTable = {
   init: async () => {
     await loadRowsData()
