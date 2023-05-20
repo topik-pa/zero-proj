@@ -1,45 +1,3 @@
-/* const endpoint = '/api/'
-
-const api = {
-  get: async (path) => {
-    const formattedResp = {}
-    const params = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    await fetch(endpoint + path, params)
-      .then(resp => {
-        formattedResp.status = resp.status
-        return resp.json()
-      })
-      .then(data => { formattedResp.body = data })
-      .catch((err) => { console.error(err) })
-    return formattedResp
-  },
-  post: async (data = {}, path) => {
-    const formattedResp = {}
-    const params = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    }
-    await fetch(endpoint + path, params)
-      .then(resp => {
-        formattedResp.status = resp.status
-        return resp.json()
-      })
-      .then(data => { formattedResp.body = data })
-      .catch((err) => { console.error(err) })
-    return formattedResp
-  }
-}
-
-export default api */
-
 export async function proxyFetch (path = '', data = {}, method = 'GET', headers = {}) {
   const obj = {}
   const params = {
@@ -55,10 +13,10 @@ export async function proxyFetch (path = '', data = {}, method = 'GET', headers 
     referrerPolicy: 'no-referrer'
   }
   // Include JWT token if found
-  const refreshJWT = undefined
-  if (refreshJWT) {
-    params.headers.authorization = `Bearer ${refreshJWT}`
-  }
+  // const refreshJWT = undefined
+  // if (refreshJWT) {
+  //  params.headers.authorization = `Bearer ${refreshJWT}`
+  // }
 
   // Add data if needed
   if (['post', 'put', 'patch', 'delete'].includes(method.toLowerCase())) {

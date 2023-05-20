@@ -21,9 +21,7 @@ git push -u origin main
 https://eslint.org/docs/user-guide/getting-started
 
 
-# service worker in observable
-# PLP
-# form
+# TODO
 
 
 

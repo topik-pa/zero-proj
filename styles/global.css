@@ -28,7 +28,7 @@ a {
   text-decoration: none;
 }
 
-em {
+em, .em {
   font-weight: 500;
 }
 
