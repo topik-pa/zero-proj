@@ -16,3 +16,12 @@ header section:nth-child(2) {
 #toggle-dark {
   cursor: pointer;
 }
+#toggle-dark::after {
+  content: "Darkmode";
+  font-family: 'Montserrat', sans-serif;
+  margin-left: var(--xx-small-space);
+  vertical-align: text-bottom;
+  font-size: var(--font-size-very-small);
+  font-style: italic;
+  color: var(--light-gray);
+}
