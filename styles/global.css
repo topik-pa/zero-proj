@@ -32,6 +32,10 @@ em, .em {
   font-weight: 500;
 }
 
+small {
+  font-size: var(--font-size-small);
+}
+
 .hide {
   display: none!important;
 }
