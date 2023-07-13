@@ -23,4 +23,5 @@ footer section:nth-child(2) {
 
 footer a {
   font-weight: 500;
+  margin: 0 var(--gap);
 }

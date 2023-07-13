@@ -26,6 +26,14 @@ module.exports = app => {
     ]
     res.render('plp/plp', { id: 'plp', title: 'Product Listing Page', url: req.url, breadcrumbs })
   })
+  app.get('/contacts', (req, res) => {
+    const breadcrumbs = [
+      {
+        name: 'Contacts'
+      }
+    ]
+    res.render('contacts/contacts', { id: 'contacts', title: 'Contacts', url: req.url, breadcrumbs })
+  })
   app.get('/privacy', (req, res) => {
     const breadcrumbs = [
       {
