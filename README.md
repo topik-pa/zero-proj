@@ -22,7 +22,6 @@ https://eslint.org/docs/user-guide/getting-started
 
 
 # TODO
-500
 Contatti
 Better footer
 

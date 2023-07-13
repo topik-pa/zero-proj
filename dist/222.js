@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunkzero=self.webpackChunkzero||[]).push([[222],{222:(e,t,c)=>{c.r(t),c.d(t,{privacy:()=>n});const n={init:async()=>{console.log("Privacy");const e=await c.e(342).then(c.bind(c,342));document.adoptedStyleSheets=[e.default]}}}}]);
+"use strict";(self.webpackChunkzero=self.webpackChunkzero||[]).push([[222],{222:(c,e,s)=>{s.r(e),s.d(e,{privacy:()=>n});const n={init:async()=>{console.log("Privacy")}}}}]);
