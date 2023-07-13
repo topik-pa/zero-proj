@@ -24,6 +24,7 @@
 @import "/views/form/form.css";
 @import "/views/privacy/privacy.css";
 @import "/views/404/404.css";
+@import "/views/500/500.css";
 
 
 @import "./responsive.css";
