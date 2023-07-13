@@ -24,6 +24,21 @@ function goToHash () {
 }
 goToHash()
 
+// Go to the relative hash section
+function goToSection () {
+  const $anchors = document.querySelectorAll('a[data-target]')
+  for (const anchor of $anchors) {
+    anchor.addEventListener('click', (e) => {
+      const $target = document.getElementById(anchor.dataset.target)
+      if ($target) {
+        e.preventDefault()
+        $target.scrollIntoView({ behavior: 'smooth' })
+      }
+    })
+  }
+}
+goToSection()
+
 if (document.querySelector('body#home')) {
   import('../views/home.js').then((module) => {
     module.home.init()

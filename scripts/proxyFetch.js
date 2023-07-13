@@ -1,4 +1,4 @@
-export async function proxyFetch (path = '', data = {}, method = 'GET', headers = {}) {
+async function proxyFetch (path = '', data = {}, method = 'GET', headers = {}) {
   const obj = {}
   const params = {
     method: method,
@@ -32,3 +32,5 @@ export async function proxyFetch (path = '', data = {}, method = 'GET', headers 
     .catch((err) => { console.error(err) }) // TODO: maybe a better error management?
   return obj
 }
+
+export default proxyFetch
