@@ -1,13 +1,14 @@
 :root {
   /* COLORS */
-  --white:        #ffffff;
-  --lighter-gray: #eeeeee;
-  --light-gray:   #aaaaaa;
-  --gray:         #787878;
-  --dark-gray:    #666666;
-  --darker-gray:  #4d4d4d;
-  --darkest-gray: #1a1a1a;
-  --black:        #000000;
+  --white:         #FAFAFA;
+  --lightest-gray: #F1F1F1;
+  --lighter-gray:  #E0E0E0;
+  --light-gray:    #A9A9A9;
+  --gray:          #888888;
+  --dark-gray:     #707070;
+  --darker-gray:   #585858;
+  --darkest-gray:  #383838;
+  --black:         #181818;
 
   --blue: #3e78e8;
   --red:  #c91e2c;
@@ -73,9 +74,10 @@
 
   /* Z-INDEXES */
   --loading: 9;
-  --modal: 99;
-  --privacy: 999;
-  --gototop: 9999;
+  --main-menu: 99;
+  --modal: 999;
+  --privacy: 9999;
+  --gototop: 99999;
 }
 
 .dark:root {

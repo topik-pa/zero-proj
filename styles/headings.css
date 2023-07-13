@@ -1,10 +1,13 @@
 h1 {
   font-size: var(--font-size-biggest);
   letter-spacing: .1rem;
+  margin-top: var(--large-space);
+  line-height: 100%;
 }
 h2 {
   font-size: var(--font-size-huge);
   letter-spacing: .1rem;
+  line-height: 100%;
 }
 h3 {
   font-size: var(--font-size-bigger);

@@ -26,10 +26,25 @@ main section {
 a {
   color: var(--blue);
   text-decoration: none;
+  position: relative;
+}
+a.ext::after {
+  content: '\21F1';
+  transform: rotate(90deg);
+  display: inline-block;
+  position: relative;
+  top: -3px;
+  font-size: 9px;
+  right: 0;
 }
 
 em, .em {
   font-weight: 500;
+}
+
+p {
+  margin: var(--x-small-space) 0;
+  line-height: 120%;
 }
 
 small {
@@ -41,4 +56,14 @@ small {
 }
 .show {
   display: block!important;
+}
+
+.green {
+  color: var(--green);
+}
+.red {
+  color: var(--red);
+}
+.blue {
+  color: var(--blue);
 }
