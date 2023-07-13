@@ -22,8 +22,9 @@
       url: '/privacy'
     }
   ] 
-i(class="icon-menu") 
+span(class="hamburger icon-menu") 
 nav(id="main-menu")
+  span(class="close icon-close")
   ul
     each link in links
       li(class = (title === link.name) ? "active" : "")

@@ -1,6 +1,6 @@
 #breadcrumbs {
   display: block;
-  border-bottom: 1px solid rgba(62, 120, 232, 0.2);
+  border-bottom: 1px solid rgba(62, 120, 232, .2);
   text-align: center;
 }
 
@@ -14,9 +14,10 @@
 
 #breadcrumbs a:not(:first-child)::before {
   content: '\2192';
-  vertical-align: baseline;
-  margin: 0.2rem;
+  vertical-align: text-bottom;
+  margin: .2rem;
   color: var(--primary);
+  font-size: var(--font-size-bigger);
 }
 #breadcrumbs a {
   color: var(--primary);

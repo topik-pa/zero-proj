@@ -5,7 +5,7 @@ module.exports = app => {
   app.get('/users', (req, res) => {
     const breadcrumbs = [
       {
-        name: 'users'
+        name: 'Users'
       }
     ]
     res.render('users/users', { id: 'users', title: 'Users', url: req.url, breadcrumbs })
@@ -13,7 +13,7 @@ module.exports = app => {
   app.get('/form', (req, res) => {
     const breadcrumbs = [
       {
-        name: 'form'
+        name: 'Form'
       }
     ]
     res.render('form/form', { id: 'form', title: 'Form', url: req.url, breadcrumbs })
@@ -21,7 +21,7 @@ module.exports = app => {
   app.get('/plp', (req, res) => {
     const breadcrumbs = [
       {
-        name: 'plp'
+        name: 'PLP'
       }
     ]
     res.render('plp/plp', { id: 'plp', title: 'Product Listing Page', url: req.url, breadcrumbs })
@@ -29,7 +29,7 @@ module.exports = app => {
   app.get('/privacy', (req, res) => {
     const breadcrumbs = [
       {
-        name: 'privacy'
+        name: 'Privacy'
       }
     ]
     res.render('privacy/privacy', { id: 'privacy', title: 'Privacy', url: req.url, breadcrumbs })

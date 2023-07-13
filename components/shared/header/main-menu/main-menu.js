@@ -1,10 +1,13 @@
 const mainMenu = {
   toggleMobileMenu: () => {
-    const header = document.querySelector('header')
-    const menuIcon = header.querySelector('.icon-menu')
-    const menu = header.querySelector('nav')
-    menuIcon.addEventListener('click', () => {
-      menu.classList.toggle('show')
+    const $root = document.getElementById('main-menu')
+    const $hamburger = document.querySelector('header .hamburger')
+    const $closeMenu = $root.querySelector('.close')
+    $hamburger.addEventListener('click', () => {
+      $root.classList.toggle('show')
+    })
+    $closeMenu.addEventListener('click', () => {
+      $root.classList.remove('show')
     })
   }
 }

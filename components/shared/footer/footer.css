@@ -18,7 +18,7 @@ footer section:nth-child(1) {
 footer section:nth-child(2) {
   background-color: var(--black);
   text-align: center;
-  text-shadow: 0px 0px 0px var(--dark-gray);
+  text-shadow: 0 0 0 var(--dark-gray);
 }
 
 footer a {
