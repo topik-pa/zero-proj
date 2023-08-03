@@ -23,6 +23,9 @@ html
       meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
       meta(name="author" content=owner)
       link(rel="shortcut icon", href="/public/favicon.ico", type="image/x-icon")
+    if prod
+      script. 
+        if (window.location.protocol == 'http:') window.location.protocol = 'https:'
     script. 
       if (localStorage.getItem('dark')) document.documentElement.classList.add('dark')
     if prod
