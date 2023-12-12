@@ -18,6 +18,7 @@ body {
 main {
   padding: var(--view-padding);
   flex: auto;
+  line-height: 120%;
 }
 main section {
   margin: var(--section-margin) 0;
@@ -27,6 +28,9 @@ a {
   color: var(--blue);
   text-decoration: none;
   position: relative;
+}
+a:hover {
+  filter: brightness(80%);
 }
 a.ext::after {
   content: '\21F1';
@@ -44,11 +48,19 @@ em, .em {
 
 p {
   margin: var(--x-small-space) 0;
-  line-height: 120%;
 }
 
 small {
-  font-size: var(--font-size-small);
+  font-size: 50%;
+}
+
+ul, ol {
+  margin: var(--normal-space);
+  padding-left: var(--normal-space);
+  list-style: auto;
+}
+ul li, ol li {
+  margin: var(--small-space) 0;
 }
 
 .hide {
