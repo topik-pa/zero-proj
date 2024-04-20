@@ -34,7 +34,10 @@ html
         link(rel="stylesheet", type="text/css", href="/styles/style.css")
   body(id=id, class=className)
     include ../components/shared/header/header.pug
-    block main
+    block intro
+    main 
+      block main
+    block outro
     block footer
       include ../components/shared/footer/footer.pug
       include ../components/shared/cookie_layer/cookie_layer.pug

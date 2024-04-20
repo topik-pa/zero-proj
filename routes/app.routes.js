@@ -1,45 +1,51 @@
 module.exports = app => {
   app.get('/', (req, res) => {
-    res.render('home', { id: 'home', title: 'Home', url: req.url })
+    const title = 'Home'
+    res.render('home', { id: 'home', className: 'home', title, url: req.url })
   })
   app.get('/users', (req, res) => {
+    const title = 'Users'
     const breadcrumbs = [
       {
-        name: 'Users'
+        name: title
       }
     ]
-    res.render('users/users', { id: 'users', title: 'Users', url: req.url, breadcrumbs })
+    res.render('users/users', { id: 'users', title, url: req.url, breadcrumbs })
   })
   app.get('/form', (req, res) => {
+    const title = 'Form'
     const breadcrumbs = [
       {
-        name: 'Form'
+        name: title
       }
     ]
-    res.render('form/form', { id: 'form', title: 'Form', url: req.url, breadcrumbs })
+    res.render('form/form', { id: 'form', title, url: req.url, breadcrumbs })
   })
   app.get('/plp', (req, res) => {
+    const title = 'PLP'
     const breadcrumbs = [
       {
-        name: 'PLP'
+        name: title
       }
     ]
-    res.render('plp/plp', { id: 'plp', title: 'Product Listing Page', url: req.url, breadcrumbs })
+    res.render('plp/plp', { id: 'plp', title, url: req.url, breadcrumbs })
   })
   app.get('/contacts', (req, res) => {
+    const title = 'Contacts'
     const breadcrumbs = [
       {
-        name: 'Contacts'
+        name: title
       }
     ]
-    res.render('contacts/contacts', { id: 'contacts', title: 'Contacts', url: req.url, breadcrumbs })
+    res.render('contacts/contacts', { id: 'contacts', title, url: req.url, breadcrumbs })
   })
   app.get('/privacy', (req, res) => {
+    const title = 'Privacy'
     const breadcrumbs = [
       {
-        name: 'Privacy'
+        name: title
       }
     ]
-    res.render('privacy/privacy', { id: 'privacy', title: 'Privacy', url: req.url, breadcrumbs })
+    res.render('privacy/privacy', { id: 'privacy', title, url: req.url, breadcrumbs })
   })
 }

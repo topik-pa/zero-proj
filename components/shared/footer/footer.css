@@ -4,18 +4,18 @@ footer {
   color: var(--tertiary);
   font-size: var(--font-size-small);
 }
-footer section {
+footer > div {
   padding: var(--x-small-space) var(--view-padding);
 }
 
-footer section:nth-child(1) {
+footer > div:nth-child(1) {
   background-color: var(--darker-gray);
   text-align: center;
   padding: 0;
   padding-top: 8px;
 }
 
-footer section:nth-child(2) {
+footer > div:nth-child(2) {
   background-color: var(--black);
   text-align: center;
   text-shadow: 0 0 0 var(--dark-gray);

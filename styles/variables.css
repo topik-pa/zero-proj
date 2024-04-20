@@ -81,16 +81,38 @@
 }
 
 .dark:root {
-  --primary: var(--lighter-gray);
-  --secondary: var(--darkest-gray);
+  --white:         #181818;
+  --lightest-gray: #383838;
+  --lighter-gray:  #585858;
+  --light-gray:    #707070;
+  --gray:          #888888;
+  --dark-gray:     #A9A9A9;
+  --darker-gray:   #E0E0E0;
+  --darkest-gray:  #F1F1F1;
+  --black:         #FAFAFA;
+
+  --primary: var(--darker-gray);
+  --secondary: var(--lightest-gray);
+  --link: var(--black);
 }
 .dark .invert {
   filter: invert(1);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: var(--lighter-gray);
-    --secondary: var(--darkest-gray);
+    --white:         #181818;
+    --lightest-gray: #383838;
+    --lighter-gray:  #585858;
+    --light-gray:    #707070;
+    --gray:          #888888;
+    --dark-gray:     #A9A9A9;
+    --darker-gray:   #E0E0E0;
+    --darkest-gray:  #F1F1F1;
+    --black:         #FAFAFA;
+  
+    --primary: var(--darker-gray);
+    --secondary: var(--lightest-gray);
+    --link: var(--black);
   }
   .invert {
     filter: invert(1);

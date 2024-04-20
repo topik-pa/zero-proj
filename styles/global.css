@@ -25,7 +25,7 @@ main section {
 }
 
 a {
-  color: var(--blue);
+  color: var(--link);
   text-decoration: none;
   position: relative;
 }
@@ -51,7 +51,7 @@ p {
 }
 
 small {
-  font-size: 50%;
+  font-size: var(--font-size-very-small);
 }
 
 ul, ol {
