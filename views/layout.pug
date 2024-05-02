@@ -4,9 +4,11 @@
   let proj_tagline = 'Un progetto di test'
   let description = 'A description...'
   let proj_url = 'https://www.zero-project.net'
-  let copy = 2023
+  let copy = 2024
   let owner = 'Marco Pavan'
-  let logo = 'https://www.tradingradar.net/assets/images/logo.png'
+  let email = 'info@progweb.it'
+  let owner_email = 'marco@progweb.it'
+  let logo = 'https://progweb.it/assets/images/logo.png'
   let fbAppId = 238576103449837
   let googleSiteVerification = '#'
   let sc_project = 12345
@@ -23,10 +25,7 @@ html
       meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
       meta(name="author" content=owner)
       link(rel="shortcut icon", href="/public/favicon.ico", type="image/x-icon")
-    if prod
-      script. 
-        if (window.location.protocol == 'http:') window.location.protocol = 'https:'
-    script. 
+    script(nonce=nonce).
       if (localStorage.getItem('dark')) document.documentElement.classList.add('dark')
     if prod
         link(rel="stylesheet", type="text/css", href="/dist/main.css")
@@ -48,18 +47,18 @@ html
       script(src='/scripts/index.js', type='module')
     if prod
       div(id="fb-root")
-      script(async defer crossorigin="anonymous" src=("https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v17.0&appId=" + fbAppId + "&autoLogAppEvents=1") nonce="P480iIy1")
-      script.
+      script(async defer crossorigin="anonymous" src=("https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v17.0&appId=" + fbAppId + "&autoLogAppEvents=1"))
+      script(nonce=nonce).
         var sc_project = #{sc_project};
          var sc_invisible = 1;
          var sc_security = "#{sc_security}";
-      script. 
+      script(nonce=nonce).
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', "#{GATagId}");
       script(async, defer, src='https://www.statcounter.com/counter/counter.js')
-      script(async, defer, src="https://www.googletagmanager.com/gtag/js?id=" + GATagId)
+      script(async, defer, src="https://www.googletagmanager.com/gtag/js?id=" + GATagId, nonce=nonce)
       script(type='application/ld+json').
           {
             "@context": "https://schema.org",
